@@ -11,7 +11,7 @@ This repository contains **Java solutions** to various competitive programming p
 ## Platforms Used:
 Solutions were practiced on: [LeetCode](https://leetcode.com/)
 
-## My Leetcode Profiles: [leetcode.com/RutujaAkhade](https://leetcode.com/RutujaAkhade/)
+## My Leetcode Profile: https://leetcode.com/RutujaAkhade/
 
 
 

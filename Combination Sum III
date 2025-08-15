@@ -1,0 +1,18 @@
+//https://leetcode.com/problems/combination-sum-iii/description/
+class Solution {
+    public void findcombinations(int num,int sum,int k,List<Integer> ds,List<List<Integer>> ans){
+        if(ds.size()==k && sum==0){
+            ans.add(new ArrayList<>(ds));
+        }
+        for(int i = num+1;i<=9;i++){
+            ds.add(i);
+            findcombinations(i,sum-i,k,ds,ans);
+            ds.remove(ds.size()-1);
+        }
+    }
+    public List<List<Integer>> combinationSum3(int k, int n) {
+        List<List<Integer>> ans=new ArrayList<>();
+        findcombinations(0,n,k,new ArrayList<>(),ans);
+        return ans;
+    }
+}

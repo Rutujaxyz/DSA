@@ -1,0 +1,49 @@
+//https://leetcode.com/problems/subsets/description/
+//solution 1:
+class Solution {
+    public void solve(int index, int[] nums, List<Integer> current, List<List<Integer>> result) {
+        if (index == nums.length) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        // Not pick the current element
+        solve(index + 1, nums, current, result);
+
+        // Pick the current element
+        current.add(nums[index]);
+        solve(index + 1, nums, current, result);
+
+        // Backtrack
+        current.remove(current.size() - 1);
+    }
+
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> result = new ArrayList<>();
+        solve(0, nums, new ArrayList<>(), result);
+        return result;
+    }
+}
+
+//solution 2:
+class Solution {
+     public void findCombination(int ind, int[] nums, List<List<Integer>> ans, List<Integer> ds){
+
+        
+        ans.add(new ArrayList<>(ds));
+        for(int i =ind;i<nums.length;i++){
+            ds.add(nums[i]);
+            findCombination(i+1,nums,ans,ds);
+            ds.remove(ds.size()-1);
+
+        }
+
+    }
+    public List<List<Integer>> subsets(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> ans=new ArrayList<>();
+        findCombination(0, nums,ans,new ArrayList<>());
+        return ans;
+
+    }
+}
